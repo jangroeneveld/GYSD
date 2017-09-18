@@ -1,10 +1,19 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import {AppContainer} from "react-hot-loader";
-import App from "./components/App";
+import * as firebase from "firebase";
+import { AppContainer } from "react-hot-loader";
+import { App } from "./components/App";
 import "./style.scss";
 
 const rootEl = document.getElementById("root");
+firebase.initializeApp({
+    apiKey: "AIzaSyCNKc47ouR48jKJlryby3x36IyFsvDgrw0",
+    authDomain: "gysdlist.firebaseapp.com",
+    databaseURL: "https://gysdlist.firebaseio.com",
+    projectId: "gysdlist",
+    storageBucket: "",
+    messagingSenderId: "726026243566"
+});
 
 ReactDOM.render(
     <AppContainer>
