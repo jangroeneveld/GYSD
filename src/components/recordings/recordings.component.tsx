@@ -23,6 +23,10 @@ export class RecordingsComponent extends React.Component<{}, {}>{
 		});
 	}
 
+	componentWillUnmount(){
+		this.database.off();
+	}
+
 	render() {
 		return (
 			<div className="component">
@@ -48,7 +52,7 @@ export class RecordingsComponent extends React.Component<{}, {}>{
 				</Typography>
 				<Paper style={this.paperStyle}>
 					<Grid container align="center" justify="center">
-						<Grid item xs={3} style={{textAlign: "center"}}>
+						<Grid item xs={3} >
 							<Button aria-owns={this.state.dayPickerOpen ? 'simple-menu' : null} aria-haspopup="true" onClick={this.openDayPicker}>
 								{this.newRecording.day || "Select a day"}
 							</Button>
@@ -82,7 +86,7 @@ export class RecordingsComponent extends React.Component<{}, {}>{
 								margin="normal"
 							/>
 						</Grid>
-						<Grid item xs={12} style={{textAlign: "center"}}>
+						<Grid item xs={12}>
 							<Button onClick={this.addRecording}>add</Button>
 						</Grid>
 					</Grid>
@@ -94,14 +98,14 @@ export class RecordingsComponent extends React.Component<{}, {}>{
 	private getRecordings = () => {
 		return this.days.map(d => {
 			return <Paper style={this.paperStyle} key={d}>
-				<Typography type="button" gutterBottom>{d}</Typography>
+				<Typography type="button" color="inherit" gutterBottom>{d}</Typography>
 				{this.getRecordingsForDay(d)}
 			</Paper>
 		});
 	}
 
 	private getRecordingsForDay = (day: string) => {
-		return !this.state.recordings[day].length ? "Nothing to record" : this.state.recordings[day].map(show => { 
+		return !this.state.recordings[day].length ? <Typography type="caption">Nothing to record</Typography> : this.state.recordings[day].map(show => { 
 			return <div key={uuid()}>
 				<Grid container spacing={24}>
 					<Grid item xs={5}>

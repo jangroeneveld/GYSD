@@ -8,12 +8,14 @@ export class RouterOutput extends React.Component<{}, {}>{
 	style = {flexGrow: 1, paddingTop: 100, margin: "auto", maxWidth: "100%"}
 	render(){
 		return(
-			<Grid container align="center" justify="center" style={this.style}>
-				<Grid item xs={12} md={8}>
-					<Route path="/" exact={true} component={HomeComponent}/>
-					<Route path="/recordings" component={RecordingsComponent}/>
+			<div style={this.style}>
+				<Grid spacing={0} container align="center" justify="center" >
+					<Grid item xs={12} md={8} lg={6} xl={4}>
+						<Route path="/" exact={true} component={HomeComponent}/>
+						<Route path="/recordings" component={RecordingsComponent}/>
+					</Grid>
 				</Grid>
-			</Grid>
+			</div>
 		)
 	}
 }

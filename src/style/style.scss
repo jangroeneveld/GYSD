@@ -4,3 +4,13 @@ body, html{
 	font-family: "Roboto";
 	background-color: #fafafa;
 }
+
+a{
+	text-decoration: none;
+
+	&:visited,
+	&:active,
+	&:focus{
+		color: inherit
+	}
+}
