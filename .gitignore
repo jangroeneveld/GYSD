@@ -4,3 +4,4 @@ dist/
 coverage/
 src/**/*.jsx
 __tests__/**/*.jsx
+npm-debug.log

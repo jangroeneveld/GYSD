@@ -4,6 +4,7 @@ import * as firebase from "firebase";
 import { AppContainer } from "react-hot-loader";
 import { App } from "./components/App";
 import "./style.scss";
+import { HashRouter } from "react-router-dom";
 
 const rootEl = document.getElementById("root");
 firebase.initializeApp({
@@ -14,26 +15,32 @@ firebase.initializeApp({
     storageBucket: "",
     messagingSenderId: "726026243566"
 });
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
 
 ReactDOM.render(
     <AppContainer>
-        <App/>
+        <HashRouter>
+            <App />
+        </HashRouter>
     </AppContainer>,
     rootEl
 );
 
 // Hot Module Replacement API
-declare let module: {hot: any};
+declare let module: { hot: any };
 
 if (module.hot) {
-    module.hot.accept("./components/App", () => {
+    module.hot.accept();
+}/*"./components/App", () => {
         const NewApp = require("./components/App").default;
 
         ReactDOM.render(
             <AppContainer>
-                <NewApp/>
+                <HashRouter>
+                    <App />
+                </HashRouter>
             </AppContainer>,
             rootEl
         );
     });
-}
+}*/
