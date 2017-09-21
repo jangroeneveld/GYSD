@@ -1,12 +1,11 @@
 import * as React from "react";
 import { Toolbar, AppBar, IconButton, Drawer } from "material-ui";
-import { Avatar, Button, Typography, Paper, Divider } from "material-ui";
-import List, { ListItem } from "material-ui/List";
+import { Avatar, Button, Typography, Paper, Divider, List, ListItem } from "material-ui";
 import MenuIcon from "material-ui-icons/Menu";
 import ChevronLeftIcon from "material-ui-icons/ChevronLeft";
 import * as firebase from "firebase";
-import { RouterOutput } from "./router-output";
-import { Link } from "react-router-dom";
+import { RouterOutput } from "./routing/router-output";
+import { LinksComponent } from "./routing/links.component";
 
 export class App extends React.Component<{}, {}>{
 	state = { drawerOpen: false, popoverOpen: false, user: undefined };
@@ -49,19 +48,7 @@ export class App extends React.Component<{}, {}>{
 							</ListItem>
 						</List>
 					</Paper>
-					<List>
-						<Link to="/" onClick={this.toggleDrawer} style={{ textDecoration: "none" }}>
-							<ListItem>
-								<Typography type="button" color="accent">Home</Typography>
-							</ListItem>
-						</Link>
-						<Divider />
-						<Link to="/recordings" onClick={this.toggleDrawer} style={{ textDecoration: "none" }}>
-							<ListItem>
-								<Typography type="button" color="accent">Recordings</Typography>
-							</ListItem>
-						</Link>
-					</List>
+					<LinksComponent onClick={this.toggleDrawer}/>
 				</Drawer>
 				<RouterOutput />
 			</div>

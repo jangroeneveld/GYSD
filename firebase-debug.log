@@ -1,0 +1,51 @@
+[debug] [2017-09-21T10:45:39.856Z] ----------------------------------------------------------------------
+[debug] [2017-09-21T10:45:39.859Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Jan\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase deploy
+[debug] [2017-09-21T10:45:39.859Z] CLI Version:   3.12.0
+[debug] [2017-09-21T10:45:39.859Z] Platform:      win32
+[debug] [2017-09-21T10:45:39.859Z] Node Version:  v6.11.1
+[debug] [2017-09-21T10:45:39.860Z] Time:          Thu Sep 21 2017 12:45:39 GMT+0200 (W. Europe Summer Time)
+[debug] [2017-09-21T10:45:39.860Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-09-21T10:45:39.874Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-09-21T10:45:39.875Z] > authorizing via signed-in user
+[debug] [2017-09-21T10:45:39.877Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-09-21T10:45:39.877Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/r9Us6ORiGUy6-GtohhM7j46vu0tnDmlSiPLbDFg8Ql8',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Thu Sep 21 2017 12:45:39 GMT+0200 (W. Europe Summer Time)
+[debug] [2017-09-21T10:45:39.980Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-21T10:45:39.988Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/gysdlist  
+ Thu Sep 21 2017 12:45:39 GMT+0200 (W. Europe Summer Time)
+[debug] [2017-09-21T10:45:40.627Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-21T10:45:40.628Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/gysdlist/tokens  
+ Thu Sep 21 2017 12:45:40 GMT+0200 (W. Europe Summer Time)
+[debug] [2017-09-21T10:45:41.206Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'gysdlist'...
+[info] 
+[info] i  deploying database, hosting
+[info] +  database: rules ready to deploy.
+[info] i  hosting: preparing public directory for upload...
+[debug] [2017-09-21T10:45:43.478Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/gysdlist/uploads/-KuZ1lNk1As0w5Vg1wHn?fileCount=2&message=  
+ Thu Sep 21 2017 12:45:43 GMT+0200 (W. Europe Summer Time)
+[debug] [2017-09-21T10:45:49.018Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-21T10:45:49.018Z] [hosting] .tgz uploaded successfully, waiting for extraction
+[error] 
+[error] Error: File upload failed: Deploy failed.
+[debug] [2017-09-21T10:47:02.699Z] Error Context: {
+  "duration": 73522,
+  "fileCount": 2,
+  "ip": "141.252.207.164",
+  "start": 1505990749043,
+  "status": "failed",
+  "statusMessage": "Deploy failed.",
+  "uid": "105377835994810722557",
+  "uploadedCount": 2,
+  "user": {
+    "email": "groeneveld1992@gmail.com",
+    "gaiaId": "105377835994810722557",
+    "image": "https://lh3.googleusercontent.com/-1seUXOSwosA/AAAAAAAAAAI/AAAAAAAAAMM/6m-k_RJOFUE/photo.jpg"
+  }
+}
