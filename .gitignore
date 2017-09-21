@@ -5,3 +5,5 @@ coverage/
 src/**/*.jsx
 __tests__/**/*.jsx
 npm-debug.log
+public/bundle.js
+public/bundle.js.map

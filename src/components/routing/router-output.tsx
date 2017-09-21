@@ -7,7 +7,7 @@ import { ContactComponent } from "../contact/contact.component";
 import { Grid } from "material-ui";
 
 export class RouterOutput extends React.Component<{}, {}>{
-	style = {flexGrow: 1, paddingTop: 100, margin: "auto", maxWidth: "100%"}
+	style = {flexGrow: 1, paddingTop: 100, margin: "auto", maxWidth: "95%"}
 	render(){
 		return(
 			<div style={this.style}>

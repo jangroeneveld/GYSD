@@ -39,37 +39,35 @@ export class SkillsComponent extends React.Component<{}, {}> {
 
 	render() {
 		return (
-			<Grid item>
-				<Grid container>
-					<Grid item xs={12}>
-						<Paper style={this.paperStyle}>
-							<Typography type="title" gutterBottom noWrap>
-								Skills
-							</Typography>
-							<Typography type="caption" gutterBottom noWrap>
-								To pay the bills
-							</Typography>
-						</Paper>
-					</Grid>
-					{this.skillCards.map(skill => {
-						return <Grid item xs={12} sm={6} lg={4}>
-							<Card>
-								<CardMedia
-									style={this.cardMediaStyle}
-									image={skill.imageURL}
-								/>
-								<CardContent>
-									<Typography type="headline" component="h2">
-										{skill.title}
-									</Typography>
-									<Typography component="p">
-										{skill.description}
-									</Typography>
-								</CardContent>
-							</Card>
-						</Grid>
-					})}
+			<Grid container>
+				<Grid item xs={12}>
+					<Paper style={this.paperStyle}>
+						<Typography type="title" gutterBottom noWrap>
+							Skills
+						</Typography>
+						<Typography type="caption" gutterBottom noWrap>
+							To pay the bills
+						</Typography>
+					</Paper>
 				</Grid>
+				{this.skillCards.map(skill => {
+					return <Grid item xs={12} sm={6} xl={4} key={skill.title}>
+						<Card>
+							<CardMedia
+								style={this.cardMediaStyle}
+								image={skill.imageURL}
+							/>
+							<CardContent>
+								<Typography type="headline" component="h2">
+									{skill.title}
+								</Typography>
+								<Typography component="p">
+									{skill.description}
+								</Typography>
+							</CardContent>
+						</Card>
+					</Grid>
+				})}
 			</Grid>
 		)
 	}
