@@ -1,8 +1,6 @@
 import * as React from "react";
-import { Toolbar, AppBar, IconButton, Drawer } from "material-ui";
-import { Avatar, Button, Typography, Paper, Divider, List, ListItem } from "material-ui";
-import MenuIcon from "material-ui-icons/Menu";
-import ChevronLeftIcon from "material-ui-icons/ChevronLeft";
+import { Toolbar, AppBar, IconButton, Drawer, Avatar, Button, Typography, Paper, Divider, List, ListItem } from "material-ui";
+import { Menu, ChevronLeft } from "material-ui-icons";
 import * as firebase from "firebase";
 import { RouterOutput } from "./routing/router-output";
 import { LinksComponent } from "./routing/links.component";
@@ -25,10 +23,10 @@ export class App extends React.Component<{}, {}>{
 				<AppBar>
 					<Toolbar>
 						<IconButton color="contrast" aria-label="Menu" onClick={this.toggleDrawer}>
-							<MenuIcon />
+							<Menu />
 						</IconButton>
 						<Typography type="title" color="inherit" noWrap style={{ flex: 1 }}>
-							My first website
+							Jan Groeneveld
 						</Typography>
 						{this.state.user &&
 							<Avatar src={this.state.user.photoURL} alt={this.state.user.displayName}></Avatar>
@@ -43,7 +41,7 @@ export class App extends React.Component<{}, {}>{
 						<List>
 							<ListItem style={{ cursor: "pointer" }} onClick={this.toggleDrawer}>
 								<IconButton color="accent">
-									<ChevronLeftIcon />
+									<ChevronLeft />
 								</IconButton>
 							</ListItem>
 						</List>

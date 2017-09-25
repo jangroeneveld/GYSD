@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as firebase from "firebase";
-import { Paper, Typography, Grid, Button, Menu, MenuItem, TextField, LinearProgress } from "material-ui";
+import { Paper, Typography, Grid, Button, Menu, MenuItem, TextField, LinearProgress, Divider, IconButton } from "material-ui";
+import { Cancel } from "material-ui-icons"
 import * as uuid from "uuid";
 
 export class RecordingsComponent extends React.Component<{}, {}>{
@@ -14,6 +15,7 @@ export class RecordingsComponent extends React.Component<{}, {}>{
 		super();
 		this.database.on("value", result => {
 			var recordings = {};
+			if(!result.val()) return this.setState({ recordings: recordings });
 			this.days.forEach(day => {
 				var shows = [];
 				if (result.val()[day]) Object.keys(result.val()[day]).forEach(s => shows.push(Object.assign(result.val()[day][s], {key: s})));
@@ -52,7 +54,7 @@ export class RecordingsComponent extends React.Component<{}, {}>{
 				</Typography>
 				<Paper style={this.paperStyle}>
 					<Grid container align="center" justify="center">
-						<Grid item xs={3} >
+						<Grid item xs={6} sm={3}>
 							<Button aria-owns={this.state.dayPickerOpen ? 'simple-menu' : null} aria-haspopup="true" onClick={this.openDayPicker}>
 								{this.newRecording.day || "Select a day"}
 							</Button>
@@ -62,7 +64,7 @@ export class RecordingsComponent extends React.Component<{}, {}>{
 								})}
 							</Menu>
 						</Grid>
-						<Grid item xs={3}>
+						<Grid item xs={6} sm={3}>
 							<TextField
 								label="Name"
 								onChange={this.handleNameChange}
@@ -70,7 +72,7 @@ export class RecordingsComponent extends React.Component<{}, {}>{
 								margin="normal"
 							/>
 						</Grid>
-						<Grid item xs={3}>
+						<Grid item xs={6} sm={3}>
 							<TextField
 								label="Channel"
 								onChange={this.handleChannelChange}
@@ -78,7 +80,7 @@ export class RecordingsComponent extends React.Component<{}, {}>{
 								margin="normal"
 							/>
 						</Grid>
-						<Grid item xs={3}>
+						<Grid item xs={6} sm={3}>
 							<TextField
 								label="Time"
 								onChange={this.handleTimeChange}
@@ -107,20 +109,23 @@ export class RecordingsComponent extends React.Component<{}, {}>{
 	private getRecordingsForDay = (day: string) => {
 		return !this.state.recordings[day].length ? <Typography type="caption">Nothing to record</Typography> : this.state.recordings[day].map(show => { 
 			return <div key={uuid()}>
-				<Grid container spacing={24}>
-					<Grid item xs={5}>
+				<Grid container spacing={16}>
+					<Grid item xs={12} sm={6}>
 						<Typography noWrap style={{lineHeight: "36px"}}>{show.Name}</Typography>
 					</Grid>
-					<Grid item xs={2}>
+					<Grid item xs={5} sm={3}>
 						<Typography noWrap style={{lineHeight: "36px"}}>{show.Channel}</Typography>
 					</Grid>
-					<Grid item xs={2}>
+					<Grid item xs={5} sm={2}>
 						<Typography noWrap style={{lineHeight: "36px"}}>{show.Time}</Typography>
 					</Grid>
-					<Grid item xs={3}>
-						<Button raised color="accent" style={{float: "right"}} onClick={() => {this.removeRecording(show.key, day)}}>delete</Button>
+					<Grid item xs={2} sm={1}>
+						<IconButton onClick={() => {this.removeRecording(show.key, day)}}>
+							<Cancel />
+						</IconButton>
 					</Grid>
 				</Grid>
+				<Divider light />
 			</div>
 		});
 	}

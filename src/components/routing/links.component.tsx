@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Divider from "material-ui/Divider/Divider";
 
 export class LinksComponent extends React.Component<{onClick: () => void},{}> {
+	links = ["portfolio", "skills", "recordings", "contact"]
 
 	render() {
 		return(
@@ -13,24 +14,14 @@ export class LinksComponent extends React.Component<{onClick: () => void},{}> {
 						<Typography type="button" color="accent">Home</Typography>
 					</ListItem>
 				</Link>
-				<Divider />
-				<Link to="/recordings" onClick={this.props.onClick} style={{ textDecoration: "none" }}>
+				{this.links.map(link => {
+					return <Link to={"/"+link} onClick={this.props.onClick} key={link} style={{ textDecoration: "none" }}>
+					<Divider/>
 					<ListItem>
-						<Typography type="button" color="accent">Recordings</Typography>
+						<Typography type="button" color="accent">{link}</Typography>
 					</ListItem>
 				</Link>
-				<Divider />
-				<Link to="/skills" onClick={this.props.onClick} style={{ textDecoration: "none" }}>
-					<ListItem>
-						<Typography type="button" color="accent">Skills</Typography>
-					</ListItem>
-				</Link>
-				<Divider />
-				<Link to="/contact" onClick={this.props.onClick} style={{ textDecoration: "none" }}>
-					<ListItem>
-						<Typography type="button" color="accent">Contact</Typography>
-					</ListItem>
-				</Link>
+				})}
 			</List>
 		)
 	}

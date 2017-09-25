@@ -6,7 +6,7 @@ export class HomeComponent extends React.Component<{}, {}>{
 	render(){
 		return(
 			<div className="container">
-				<Typography type="display3"gutterBottom noWrap>Jan Groeneveld</Typography>
+				<Typography type="display2"gutterBottom noWrap>Jan Groeneveld</Typography>
 				<Paper style={this.paperstyle}>
 					<Typography gutterBottom>
 						Hallo ik ben Jan Groeneveld, en ik ben een front-end developer, dit moet een lange zin 
